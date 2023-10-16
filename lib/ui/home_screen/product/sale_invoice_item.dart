@@ -4,22 +4,23 @@ import 'package:store/ui/componant/custom_text_field.dart';
 
 import '../../../DataBase/add_product_model.dart';
 
-class AddInvoiceItem extends StatefulWidget {
+class SaleInvoiceItem extends StatefulWidget {
   AddProductModel addProductModel;
 
-  AddInvoiceItem({required this.addProductModel});
+  SaleInvoiceItem({required this.addProductModel});
 
   @override
-  State<AddInvoiceItem> createState() => _AddInvoiceItemState();
+  State<SaleInvoiceItem> createState() => _SaleInvoiceItemState();
 }
 
-class _AddInvoiceItemState extends State<AddInvoiceItem> {
+class _SaleInvoiceItemState extends State<SaleInvoiceItem> {
   late TextEditingController quantityController;
 
   @override
   void initState() {
     super.initState();
-    quantityController = TextEditingController(text: '0');
+    quantityController = TextEditingController(
+        text: '0');
   }
 
   @override
@@ -50,9 +51,7 @@ class _AddInvoiceItemState extends State<AddInvoiceItem> {
                 ElevatedButton(
                   onPressed: () {
                     setState(() {
-                      widget.addProductModel.quantity =
-                          (int.tryParse(quantityController.text) ?? 0) +
-                              (widget.addProductModel.quantity ?? 0) as int;
+                      widget.addProductModel.quantity = ((widget.addProductModel.quantity ?? 0) - (int.tryParse(quantityController.text) ?? 0)) as int;
                     });
                     MyDataBase.editProduct(
                       widget.addProductModel.id ?? '',

@@ -1,19 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:store/ui/home_screen/product/invoice_item.dart';
 
 import '../../../DataBase/add_product_model.dart';
 import '../../../DataBase/my_database.dart';
-import '../../home_screen/product/product_item.dart';
+import '../../home_screen/product/invoice_item.dart';
 
 
 
-class Invoice extends StatelessWidget {
+class AddInvoice extends StatelessWidget {
 
-  static const routeName = "Invoice";
+  static const String routeName = "AddInvoice";
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(),
       body: Column(
@@ -29,7 +28,8 @@ class Invoice extends StatelessWidget {
                     child: CircularProgressIndicator(),
                   );
                 }
-                var productList = snapshot.data?.docs.map((doc) => doc.data()).toList();
+                var productList =
+                snapshot.data?.docs.map((doc) => doc.data()).toList();
                 if (productList?.isEmpty == true) {
                   return Center(
                     child: Text(
@@ -44,7 +44,7 @@ class Invoice extends StatelessWidget {
                 return ListView.builder(
                   itemBuilder: (context, index) {
                     final product = productList![index];
-                    return InvoiceItem(addProductModel:product);
+                    return AddInvoiceItem(addProductModel: product);
                   },
                   itemCount: productList?.length ?? 0,
                 );

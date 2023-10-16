@@ -13,7 +13,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-       MyApp(),
+    MyApp(),
   );
 }
 
@@ -39,13 +39,13 @@ class MyApp extends StatelessWidget {
           bottomNavigationBarTheme: const BottomNavigationBarThemeData(
               backgroundColor: Colors.transparent, elevation: 0)),
       routes: {
-        Login.routeName : (context) => Login(),
-        AdminScreen.routeName : (context) => AdminScreen(),
-        Employee.routeName : (context) => Employee(),
-        Store.routeName : (context) => Store(),
-        AddProduct.routeName : (context) => AddProduct(),
+        Login.routeName: (context) => Login(),
+        AdminScreen.routeName: (context) => AdminScreen(),
+        Employee.routeName: (context) => Employee(),
+        Store.routeName: (context) => Store(),
+        AddProduct.routeName: (context) => AddProduct(),
       },
-      initialRoute: Login.routeName,
+      initialRoute: Employee.routeName,
     );
   }
 }

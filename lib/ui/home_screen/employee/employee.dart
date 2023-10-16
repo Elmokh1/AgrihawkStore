@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:store/ui/pages/invoice/invoice.dart';
+import 'package:store/ui/pages/invoice/add.dart';
+import 'package:store/ui/pages/invoice/sale.dart';
 import 'package:store/ui/pages/stock/stock.dart';
 
 import '../../../DataBase/add_product_model.dart';
@@ -23,7 +24,7 @@ class Employee extends StatelessWidget {
       body: Column(
         children: [
           CustomContainer(
-            text: "المخزن",
+            text: " المخزن",
             onTap: (){
               Navigator.push(
                 context,
@@ -42,7 +43,22 @@ class Employee extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Invoice(),
+                  builder: (context) => AddInvoice(),
+                ),
+              );
+            },
+
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          CustomContainer(
+            text: "صرف فاتوره",
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SaleInvoice(),
                 ),
               );
             },
@@ -59,6 +75,20 @@ class Employee extends StatelessWidget {
               MaterialPageRoute(
                 builder: (context) => Stock(),
               ));
+            },
+
+          ),
+          SizedBox(
+            height: 80,
+          ),
+          CustomContainer(
+            text: "رصيد المخزن",
+            onTap: (){
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Stock(),
+                  ));
             },
 
           ),
